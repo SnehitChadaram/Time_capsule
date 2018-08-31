@@ -12,11 +12,63 @@
 </head>
 <body>
 
-  <div class="mainDiv" align="right">
-      <h1 align="left">Firebase Web App</h1>
-      <textarea id="mainText" placehoslder="Enter text heree ..."></textarea>
-      <button id="submitBtn" onclick="submitClick()"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+  <!-- LOGIN DIALOG -->
+  <dialog id="loginDialog" class="mdl-dialog">
+    <h4 class="mdl-dialog__title">Sign In</h4>
+    <div class="mdl-dialog__content">
+      <p id="loginError"></p>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" id="loginEmail">
+        <label class="mdl-textfield__label" for="sample3">Email...</label>
+      </div>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" id="loginPassword">
+        <label class="mdl-textfield__label" for="sample3">Password...</label>
+      </div>
+    </div>
+    <div class="mdl-dialog__actions">
+      <!-- Colored raised button -->
+      <button id="loginBtn" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+        Sign In
+      </button>
+      <!-- MDL Spinner Component -->
+      <div id="loginProgress" class="mdl-spinner mdl-js-spinner is-active"></div>
+    </div>
+  </dialog>
+
+  <!-- MAIN PAGE CONTENT -->
+
+  <div class="login-cover">
+    <!-- MDL Spinner Component -->
+    <div class="page-loader mdl-spinner mdl-js-spinner is-active"></div>
   </div>
+
+  <div class="mdl-layout mdl-js-layout">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout-icon"></div>
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout__title">Time Capsule
+          <span class="page-title-span"> | </span>
+          <span class="page-title-span"> Home </span>
+        </span>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+          <button id="signOutBtn" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+            Sign Out <i class="button-right-icon material-icons">account_circle</i>
+          </button>
+        </nav>
+      </div>
+    </header>
+    <div class="mainDiv" align="right">
+        <h1 align="left">Send message here.. </h1>
+        <textarea id="mainText" placehoslder="Enter text heree ..."></textarea>
+        <textarea id="emailText" placehoslder="Enter email heree ..."></textarea>
+        <button id="submitBtn" onclick="submitClick()"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+    </div>
+    <div class="mdl-layout__drawer">
+    </div>
+  </div>
+
 
   <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
   <script>
@@ -32,6 +84,7 @@
     firebase.initializeApp(config);
   </script>
 
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
   <script src="index.js"></script>
 
 </body>
