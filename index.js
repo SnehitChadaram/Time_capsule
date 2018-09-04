@@ -1,7 +1,20 @@
 var mainText = document.getElementById("mainText");
 var emailText = document.getElementById("emailText");
 var submitBtn = document.getElementById("submitBtn");
+var messageRetrieve = document.getElementById("messageRetrieve");
+
 var email;      //Setting it as global variable risky
+
+var messageRetrieveRef = firebase.database().ref().child("Text");
+
+messageRetrieveRef.on('value', function(datasnapshot){
+  messageRetrieve.innerText = datasnapshot.child("-LLFqmRXKYvxbbWe9m2N").child("Message").val();
+  var messages = document.getElementById("iDiv");
+  var secMsg = document.createElement('p');
+  messageRetrieve.innerHTML += datasnapshot.child("-LLFYdn6CrKoXIOSqZCo").child("Message").val();
+
+});
+
 function submitClick()
 {
   var firebaseRef = firebase.database().ref();
